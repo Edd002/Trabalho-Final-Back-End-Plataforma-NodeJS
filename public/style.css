@@ -1,0 +1,8 @@
+body {
+    background-color: aqua;
+}
+
+.banner {
+    display: block;
+    margin: 0 auto;
+}
