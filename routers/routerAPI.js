@@ -77,4 +77,14 @@ routerAPI.delete('/produtos/:id', utilSec.checkToken, utilSec.isAdmin, (req, res
         })
 })
 
+routerAPI.get('/usuarios', utilSec.checkToken, (req, res, next) => {
+    knex.select('*').from('usuario')
+        .then(usuarios => res.status(200).json(usuarios))
+        .catch(err => {
+            res.status(500).json({
+                message: 'Erro ao recuperar usuarios - ' + err.message
+            })
+        })
+})
+
 module.exports = routerAPI
